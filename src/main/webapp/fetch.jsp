@@ -10,6 +10,7 @@
 <body>
 <div align="center">
    <h1>Employee Records</h1>
+   	<h3 style="color: green">${success}</h3>
    <table border="1">
       <tr>
            <th>Name</th>
@@ -27,8 +28,8 @@
        <td>  ${emp.email }</td>
        <td>  ${emp.mobile }</td>
         <td>  ${emp.salary }</td>
-        <td><button>Delete</button></td>
-         <td><button>Edit</button></td>
+        <td><a href="delete?id=${emp.id}"><button>Delete</button></a></td>
+         <td><a href="edit?id=${emp.id}"><button>Edit</button></a></td>
       </tr>
       </x:forEach>
    </table>

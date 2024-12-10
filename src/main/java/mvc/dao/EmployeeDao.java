@@ -2,6 +2,7 @@ package mvc.dao;
 
 import java.util.List;
 
+
 import javax.persistence.EntityManager;
 
 import javax.persistence.EntityManagerFactory;
@@ -30,6 +31,24 @@ public class EmployeeDao {
 	public List<Employee> fetchAll(){
 		return m.createNativeQuery("select * from employee",Employee.class).getResultList();
 	}
+
+	public Employee find(int id) {
+		// TODO Auto-generated method stub
+		return m.find(Employee.class, id);
+	}
 	
+	  public void delete(Employee employee) {
+		  t.begin();
+		  m.remove(employee);
+		  t.commit();
+	  }
+
+	public void update(Employee employee) {
+		t.begin();
+		m.merge(employee);
+		t.commit();
+		
+	}
 	
+
 }
